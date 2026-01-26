@@ -29,6 +29,7 @@
 
 #define NXPNCI_SUCCESS      NFC_SUCCESS
 #define NXPNCI_ERROR        NFC_ERROR
+#define NCI_DEBUG
 
 #ifdef NCI_DEBUG
 #define NCI_PRINT(...)        {PRINTF(__VA_ARGS__);}
