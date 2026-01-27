@@ -9,24 +9,12 @@ void Sleep(unsigned int ms)
 
 void PrintBuf(unsigned char *x, unsigned char *y, unsigned int z)
 {
-    size_t print_len;
-
-    if (x != NULL)
+    if (x == NULL || y == NULL || z == 0)
     {
-        ESP_LOGI(TAG, "%s", (char *)x);
+        ESP_LOGE(TAG, "PrintBuf: Invalid parameters");
     }
 
-    if (y == NULL || z == 0)
-    {
-        return;
-    }
+    const char *TAG = (const char *)x;
 
-    print_len = (z > 30) ? 30 : z;
-
-    ESP_LOG_BUFFER_HEX(TAG, y, print_len);
-
-    if (z > 30)
-    {
-        ESP_LOGI(TAG, "...");
-    }
+    ESP_LOG_BUFFER_HEX(TAG, y, z);
 }
