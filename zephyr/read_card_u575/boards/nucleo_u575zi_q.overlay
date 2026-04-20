@@ -1,0 +1,16 @@
+/ {
+	aliases {
+		pn7160-i2c = &i2c2;
+	};
+
+	zephyr,user {
+		pn7160-i2c = <&i2c2>;
+		pn7160-irq-gpios = <&gpioa 3 GPIO_ACTIVE_HIGH>;
+		pn7160-en-gpios = <&gpioa 2 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+&i2c2 {
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+	status = "okay";
+};
